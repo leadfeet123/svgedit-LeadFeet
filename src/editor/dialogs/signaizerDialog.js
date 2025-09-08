@@ -1,4 +1,4 @@
-/* globals svgEditor */
+/* globals */
 import signaizerDialogHTML from './signaizerDialog.html'
 
 const template = document.createElement('template')
@@ -16,7 +16,7 @@ export class SeSignaizerDialog extends HTMLElement {
     // create the shadowDom and insert the template
     this._shadowRoot = this.attachShadow({ mode: 'open' })
     this._shadowRoot.append(template.content.cloneNode(true))
-    
+
     this.$dialog = this._shadowRoot.querySelector('#signaizer_dialog')
     this.$generateBtn = this._shadowRoot.querySelector('#signaizer_generate_btn')
     this.$cancelBtn = this._shadowRoot.querySelector('#signaizer_cancel_btn')
@@ -135,8 +135,8 @@ export class SeSignaizerDialog extends HTMLElement {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          text: text,
-          styleHint: styleHint,
+          text,
+          styleHint,
           type: '3d' // or '2d' based on your needs
         })
       })
@@ -174,7 +174,7 @@ export class SeSignaizerDialog extends HTMLElement {
    */
   async checkStyleHint () {
     const hint = this.$hintInput.value.trim()
-    
+
     if (!hint) {
       this.$hintFeedback.textContent = ''
       return
