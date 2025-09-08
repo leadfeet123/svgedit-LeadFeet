@@ -507,6 +507,17 @@ class TopPanel {
   }
 
   /**
+   * Open the SignAIzer AI dialog
+   * @returns {void}
+   */
+  clickSignaizerAI () {
+    const dialog = $id('se-signaizer-dialog')
+    if (dialog) {
+      dialog.setAttribute('dialog', 'open')
+    }
+  }
+
+  /**
    *
    * @returns {void}
    */
@@ -950,6 +961,7 @@ class TopPanel {
     // register action to top panel buttons
     $click($id('tool_source'), this.showSourceEditor.bind(this))
     $click($id('tool_wireframe'), this.clickWireframe.bind(this))
+    $click($id('tool_signaizer_ai'), this.clickSignaizerAI.bind(this))
     $click($id('tool_undo'), this.clickUndo.bind(this))
     $click($id('tool_redo'), this.clickRedo.bind(this))
     $click($id('tool_clone'), this.clickClone.bind(this))

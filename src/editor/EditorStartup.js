@@ -105,6 +105,11 @@ class EditorStartup {
       exportDialog.setAttribute('id', 'se-export-dialog')
       this.$container.append(exportDialog)
       exportDialog.init(this.i18next)
+      // SignAIzer dialog added to DOM
+      const signaizerDialog = document.createElement('se-signaizer-dialog')
+      signaizerDialog.setAttribute('id', 'se-signaizer-dialog')
+      this.$container.append(signaizerDialog)
+      signaizerDialog.init(this.i18next)
     } catch (err) {
       console.error(err)
     }
