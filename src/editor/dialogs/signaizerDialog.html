@@ -1,0 +1,85 @@
+<style>
+    :not(:defined) {
+        display: none;
+    }
+
+    #signaizer_dialog .container {
+        padding: 20px;
+        min-width: 400px;
+    }
+
+    #signaizer_dialog label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    #signaizer_dialog input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    #signaizer_dialog .hint-feedback {
+        font-size: 12px;
+        margin-top: 5px;
+        min-height: 16px;
+        margin-bottom: 15px;
+    }
+
+    #signaizer_dialog .button-group {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    #signaizer_dialog button {
+        padding: 8px 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background: #f0f0f0;
+        cursor: pointer;
+    }
+
+    #signaizer_dialog button:hover {
+        background: #e0e0e0;
+    }
+
+    #signaizer_dialog button:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+    }
+
+    #signaizer_dialog .generate-btn {
+        background: #4CAF50;
+        color: white;
+        border-color: #45a049;
+    }
+
+    #signaizer_dialog .generate-btn:hover:not(:disabled) {
+        background: #45a049;
+    }
+</style>
+
+<elix-dialog id="signaizer_dialog" aria-label="SignAIzer: Generate AI Element" closed>
+    <div class="container">
+        <h3>SignAIzer: Generate AI Element</h3>
+        
+        <label for="signaizer_text">Text Prompt:</label>
+        <input type="text" id="signaizer_text" placeholder="Enter your text prompt...">
+        
+        <label for="signaizer_hint">Style Hint (e.g., "floral", "robotic"):</label>
+        <input type="text" id="signaizer_hint" placeholder="Optional style hint...">
+        
+        <div id="signaizer_hint_feedback" class="hint-feedback"></div>
+        
+        <div class="button-group">
+            <button id="signaizer_cancel_btn">Cancel</button>
+            <button id="signaizer_generate_btn" class="generate-btn">Generate</button>
+        </div>
+    </div>
+</elix-dialog>
