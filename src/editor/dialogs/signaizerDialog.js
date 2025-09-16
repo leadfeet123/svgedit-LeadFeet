@@ -25,7 +25,7 @@ export class SeSignaizerDialog extends HTMLElement {
     this.$hintFeedback = this._shadowRoot.querySelector('#signaizer_hint_feedback')
 
     // The URL where your SignAIzer Next.js app is running
-    this.SIGNAIZER_API_URL = 'http://localhost:3000' // IMPORTANT: Change this to your actual SignAIzer app URL
+    this.SIGNAIZER_API_URL = 'https://my-signaizer-app.web.app' // IMPORTANT: Change this to your actual SignAIzer app URL
   }
 
   /**
