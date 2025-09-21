@@ -26,6 +26,8 @@ export class SeSignaizerDialog extends HTMLElement {
 
     // The URL where your SignAIzer Next.js app is running
     this.SIGNAIZER_API_URL = 'https://my-signaizer-app.web.app' // IMPORTANT: Change this to your actual SignAIzer app URL
+    // API secret key for authorization
+    this.SIGNAIZER_API_SECRET = 'YOUR_SECRET_PASSWORD_HERE' // IMPORTANT: Replace with the actual secret key from your .env file
   }
 
   /**
@@ -132,7 +134,8 @@ export class SeSignaizerDialog extends HTMLElement {
       const response = await fetch(`${this.SIGNAIZER_API_URL}/api/generate`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${this.SIGNAIZER_API_SECRET}`
         },
         body: JSON.stringify({
           text,
@@ -187,7 +190,8 @@ export class SeSignaizerDialog extends HTMLElement {
       const response = await fetch(`${this.SIGNAIZER_API_URL}/api/check-style-hint`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${this.SIGNAIZER_API_SECRET}`
         },
         body: JSON.stringify({ styleHint: hint })
       })
